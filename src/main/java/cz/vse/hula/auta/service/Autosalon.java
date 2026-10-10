@@ -5,13 +5,31 @@ import main.java.cz.vse.hula.auta.entities.Vozidlo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Třída Autosalon představuje evidenci vozidel.
+ * Udržuje seznam všech vozidel a umožňuje jejich přidávání, odebírání a vyhledávání.
+ *
+ * @author Dominik Hula
+ * @version 1.0.0
+ */
 public class Autosalon {
     private List<Vozidlo> vozidla;
 
+    /**
+     * Konstruktor třídy Autosalon
+     * Inicializuje prázdný seznam pro uchovávání vozidel.
+     */
     public Autosalon() {
         this.vozidla = new ArrayList<>();
     }
 
+    /**
+     * Přidá nové vozidlo do autosalonu.
+     * Zkontroluje, zda vozidlo není null a zda v evidenci již neexistuje duplikát (vozidlo se stejným VIN)
+     *
+     * @param noveVozidlo   vozidlo, které chceme přidat
+     * @throws IllegalArgumentException pokud je předané vozidlo null nebo již v evidenci existuje
+     */
     public void pridatVozidlo(Vozidlo noveVozidlo) {
         if (noveVozidlo == null) {
             throw new IllegalArgumentException("Nelze přidat prázdné vozidlo.");
@@ -27,6 +45,13 @@ public class Autosalon {
         System.out.println("Přidáno vozidlo: " +  noveVozidlo.getZnacka() + " " + noveVozidlo.getVin());
     }
 
+    /**
+     * Odebere existující vozidlo z autosalonu.
+     *
+     * @param odebiraneVozidlo  vozidlo k odebrání
+     * @throws IllegalArgumentException pokud je vozidlo null
+     * @throws IllegalStateException    pokud se vozidlo v autosalonu nenachází
+     */
     public void odebratVozidlo(Vozidlo odebiraneVozidlo) {
         if (odebiraneVozidlo == null) {
             throw new IllegalArgumentException("Nelze odebrat prázdné vozidlo.");
@@ -40,6 +65,12 @@ public class Autosalon {
         System.out.println("Odebráno vozidlo: " + odebiraneVozidlo.getZnacka() + " " + odebiraneVozidlo.getVin());
     }
 
+    /**
+     * Vyhledá vozidlo v autosalonu podle zadaného VIN kódu.
+     *
+     * @param vin hledaný VIN kód
+     * @return  nalezené vozidlo, nebo null, pokud vozidlo nebylo nalezeno
+     */
     public Vozidlo vyhledatVozidlo(String vin) {
         for (Vozidlo v : vozidla) {
             if (v.getVin().equals(vin)) {
@@ -51,6 +82,10 @@ public class Autosalon {
         return null;
     }
 
+    /**
+     * Vypíše všechna evidovaná vozidla v autosalonu.
+     * Pokud je autosalon prádzný, upozorní na to.
+     */
     public void vypisVsechnaVozidla() {
         System.out.println("SEZNAM VOZIDEL V AUTOSALONU");
 

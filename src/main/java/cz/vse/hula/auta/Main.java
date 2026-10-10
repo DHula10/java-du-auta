@@ -6,9 +6,27 @@ import main.java.cz.vse.hula.auta.entities.OsobniAuto;
 import main.java.cz.vse.hula.auta.entities.Vozidlo;
 import main.java.cz.vse.hula.auta.service.Autosalon;
 
+/**
+ * Hlavní spouštěcí třída aplikace Autosalon
+ * Slouží jako vstupní bod programu, ve kterém se vytváří instance autosalonu a testuje se jeho základní funkcionalita
+ * (přidávání, odebírání, výpisy).
+ *
+ * @author Dominik Hula
+ * @version 1.0.0
+ */
 public class Main {
+
+    /**
+     * Privátní konstruktor
+     */
     private Main(){};
 
+    /**
+     * Hlavní metoda, prostřednictvím níž se spouští celá aplikace.
+     * Inicializuje autosalon, plní jej daty a demonstruje odchytávání výjimek.
+     *
+     * @param args  parametry příkazového řádku (v tomto projetku nevyužito)
+     */
     public static void main(String[] args){
         Autosalon salon = new Autosalon();
 
@@ -44,6 +62,8 @@ public class Main {
             salon.odebratVozidlo(motorka);
 
             System.out.println("Pokus o odberání stejného vozidla znovu.");
+
+            salon.odebratVozidlo(motorka); // Přidáno pro reálné vyvolání chyby u druhého odebírání
         } catch (IllegalStateException e){
             System.out.println("Test o odebrání neexistujícího vozidla vyšel: " + e.getMessage());
         } catch(IllegalArgumentException e){
@@ -52,6 +72,8 @@ public class Main {
 
         System.out.println();
         salon.vypisVsechnaVozidla();
+
+
 
     }
 }
