@@ -73,7 +73,24 @@ public class Main {
         System.out.println();
         salon.vypisVsechnaVozidla();
 
+        System.out.println("Vyhledávání voziádel podle VIN");
 
+        // 1. Scénář: Hledání vozidla, které v autosalonu je
+        System.out.println("Hledá se VIN123456 (Škoda):");
+        Vozidlo nalezeneAuto = salon.vyhledatVozidlo("VIN123456");
 
+        if (nalezeneAuto != null) {
+            System.out.println("Úspěšně nalezeno: " + nalezeneAuto.toString());
+        }
+
+        System.out.println();
+
+        // 2. Scénář: Hledání vozidla, které v autosalonu není
+        System.out.println("Hledá se VIN999999:");
+        Vozidlo nenalezeneAuto = salon.vyhledatVozidlo("VIN999999");
+
+        if (nenalezeneAuto != null) {
+            System.out.println("Nalezeno: " + nenalezeneAuto.toString());
+        }
     }
 }
