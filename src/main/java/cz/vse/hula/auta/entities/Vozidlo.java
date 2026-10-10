@@ -79,12 +79,12 @@ public abstract class Vozidlo {
 
     @Override
     public String toString() {
-        return "Vozidlo{" +
-                "Značka:'" + znacka + '\'' +
-                ", VIN:'" + vin + '\'' +
-                ", Max rychlost:" + maxRychlost +
-                ", Spotřeba:" + spotrebaPaliva +
-                ", Typ pohonu:'" + typPohonu + '\'' +
+        return "Vozidlo {" +
+                "Značka: '" + znacka + '\'' +
+                ", VIN: '" + vin + '\'' +
+                ", Max rychlost : " + maxRychlost +
+                ", Spotřeba : " + spotrebaPaliva +
+                ", Typ pohonu : '" + typPohonu + '\'' +
                 '}';
     }
 }
