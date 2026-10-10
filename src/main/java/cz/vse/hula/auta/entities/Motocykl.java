@@ -47,6 +47,6 @@ public class Motocykl extends Vozidlo{
      */
     @Override
     public String toString() {
-        return super.toString() + "Postranní vozík: " + (maPostranniVozik ? "S vozíkem" : "Bez vozíku");
+        return super.toString() + ", Postranní vozík: " + (maPostranniVozik ? "S vozíkem" : "Bez vozíku");
     }
 }

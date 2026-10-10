@@ -61,7 +61,7 @@ public class Main {
         try{
             salon.odebratVozidlo(motorka);
 
-            System.out.println("Pokus o odberání stejného vozidla znovu.");
+            System.out.println("Pokus o odebrání stejného vozidla znovu.");
 
             salon.odebratVozidlo(motorka); // Přidáno pro reálné vyvolání chyby u druhého odebírání
         } catch (IllegalStateException e){
@@ -73,7 +73,7 @@ public class Main {
         System.out.println();
         salon.vypisVsechnaVozidla();
 
-        System.out.println("Vyhledávání voziádel podle VIN");
+        System.out.println("Vyhledávání vozidel podle VIN");
 
         // 1. Scénář: Hledání vozidla, které v autosalonu je
         System.out.println("Hledá se VIN123456 (Škoda):");
