@@ -1,5 +1,7 @@
 package main.java.cz.vse.hula.auta.entities;
 
+import java.util.Objects;
+
 public abstract class Vozidlo {
     private String znacka;
     private String vin;
@@ -60,5 +62,29 @@ public abstract class Vozidlo {
 
     public void setTypPohonu(String typPohonu) {
         this.typPohonu = typPohonu;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vozidlo vozidlo = (Vozidlo) o;
+        return Objects.equals(vin, vozidlo.vin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vin);
+    }
+
+    @Override
+    public String toString() {
+        return "Vozidlo{" +
+                "Značka:'" + znacka + '\'' +
+                ", VIN:'" + vin + '\'' +
+                ", Max rychlost:" + maxRychlost +
+                ", Spotřeba:" + spotrebaPaliva +
+                ", Typ pohonu:'" + typPohonu + '\'' +
+                '}';
     }
 }
